@@ -1,0 +1,141 @@
+<div>
+  <!-- <p>Це тест компонент</p> -->
+  <!-- <p>{{ title }}</p> -->
+  <!-- <p>{{ getFullName() }}</p> -->
+
+  <!-- <p [ngStyle]="{ color: 'red' }">Тут використано ngStyle</p> -->
+  <!-- <p [ngClass]="{ active: isActive, disabled: isDisabled }">Тут використано ngClass</p> -->
+
+  <!-- <button [disabled]="!isEnabled">Click me</button> -->
+
+  <!-- <div class="event-example" [ngClass]="{ clicked: isClickedState }"></div> -->
+  <!-- <button (click)="toggleState()">Перемкни стейт</button> -->
+
+  <!-- <input type="text" [(ngModel)]="inputText" />
+  <p>{{ inputText }}</p> -->
+
+  <!-- <p>{{ childMessage }}</p>
+  <button (click)="sendMessageToParent()">Надішли листа батьку</button> -->
+  <!-- <p appHighlight [highlightColor]="'blue'">Наведіть курсор, щоб побачити ефект</p> -->
+
+  <!-- <p *ngIf="isClickedState; else notClickedState">Кнопка була натиснута</p>
+
+  <ng-template #notClickedState>
+    <p>Кнопка ще не була натиснена!</p>
+  </ng-template>
+  <button (click)="toggleState()">Перемкни стейт</button> -->
+
+  <!-- <ul>
+    <li *ngFor="let user of users; index as i">{{ i + 1 }}: {{ user }}</li>
+  </ul> -->
+
+  <!-- <div [ngSwitch]="appState">
+    <p *ngSwitchCase="'active'">Аплікація активна</p>
+    <p *ngSwitchCase="'paused'">Аплікація призупинена</p>
+    <p *ngSwitchCase="'stopped'">Аплікація зупинена</p>
+    <p *ngSwitchDefault>Стан аплікації невідомий</p>
+  </div> -->
+
+  <!-- Теж саме, але в новому синтаксисі  -->
+  <!-- @if (isClickedState) {
+    <p>Кнопка була натиснута</p>
+  } @else {
+    <p>Кнопка ще не була натиснена!</p>
+  }
+  <button (click)="toggleState()">Перемкни стейт</button> -->
+
+  <!-- <ul>
+    @for (item of items; track item.id; let idx = $index, e = $even) {
+      <li>Item #{{ idx + 1 }}: {{ item.name }}</li>
+    } @empty {
+      <li>Список користувачів порожній</li>
+    }
+  </ul> -->
+
+  <!-- @switch (appState) {
+    @case ('active') {
+      <p>Аплікація активна</p>
+    }
+    @case ('paused') {
+      <p>Аплікація призупинена</p>
+    }
+    @case ('stopped') {
+      <p>Аплікація зупинена</p>
+    }
+    @default {
+      <p>Стан аплікації невідомий</p>
+    }
+  } -->
+
+  <!-- Відображає поточну дату -->
+  <!-- <p>{{ today | date: 'shortDate' }}</p> -->
+
+  <!-- Перетворює на верхній регістр  -->
+  <!-- <p>{{ 'hello world' | uppercase }}</p> -->
+
+  <!-- Перетворює на нижній регістр  -->
+  <!-- <p>{{ 'HELLO WORLD' | lowercase }}</p> -->
+
+  <!-- Відображає число у форматі валюти  -->
+  <!-- <p>{{ 1500.5 | currency }}</p> -->
+
+  <!-- Форматує число 1.23456789 до пари цифр після коми -->
+  <!-- <p>{{ 1.23456789 | number }}</p> -->
+
+  <!-- Відображає 0.5 як 50%  -->
+  <!-- <p>{{ 0.5 | percent }}</p> -->
+
+  <!-- Обрізає рядок  -->
+  <!-- <p>{{ 'hello world' | slice: 1 : 5 }}</p> -->
+
+  <!-- Відображає обєкт у форматі json  -->
+  <!-- <p>{{ { name: 'John', age: 30 } | json }}</p> -->
+
+  <!-- Використання пайпу 'truncate' для обрізання тексту -->
+  <!-- <p>{{ 'Довгий текст, який потребує обрізання' | truncate: 18 }}</p> -->
+
+  <!-- <div class="todo-container">
+    <input [(ngModel)]="newTask" placeholder="Add new task..." class="todo-input" />
+    <button (click)="addTask()" class="add-btn">Add</button>
+
+    <ul class="todo-list">
+      <li *ngFor="let task of tasks; let i = index" class="todo-item">
+        {{ task }}
+        <button (click)="removeTask(i)" class="remove-btn">Remove</button>
+      </li>
+    </ul>
+  </div> -->
+
+  <!-- Forms  -->
+
+  <div class="container">
+    <form [formGroup]="complexForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" formControlName="name" />
+        <div *ngIf="name?.invalid && name?.touched" class="error">This value is invalid.</div>
+      </div>
+
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" formControlName="email" />
+        <div *ngIf="email?.invalid && email?.touched" class="error">This value is invalid.</div>
+      </div>
+
+      <div>
+        <label for="age">Age:</label>
+        <input type="number" formControlName="age" />
+        <div *ngIf="age?.invalid && age?.touched" class="error">This value is invalid.</div>
+      </div>
+
+      <div>
+        <label>
+          <input type="checkbox" formControlName="consent" />
+          I agree to the terms and condtitions
+        </label>
+      </div>
+
+      <button type="submit" [disabled]="!complexForm.valid">Submit</button>
+    </form>
+  </div>
+</div>
